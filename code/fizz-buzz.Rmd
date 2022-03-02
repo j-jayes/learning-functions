@@ -1,0 +1,41 @@
+---
+title: "fizz-buzz"
+author: "JJayes"
+date: "07/05/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+
+```
+
+# Purpose
+
+## Code fizz-buzz
+
+```{r}
+
+fizzbuzz <- function(number){
+  
+  case_when(
+    number %% 35 == 0 ~ "Fizz Buzz",
+    number %% 3 == 0 ~ "Fizz",
+    number %% 5 == 0 ~ "Buzz",
+    TRUE ~ number %>% as.character())
+}
+
+```
+
+
+
+```{r}
+df <- tibble(number = 1:100)
+
+df %>% 
+  mutate(output = fizzbuzz(number))
+
+```
+
